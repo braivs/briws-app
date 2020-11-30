@@ -1,0 +1,14 @@
+.dialogs{
+  display: grid;
+  grid-template-columns: 1fr 8fr;
+  padding: 10px;
+}
+.dialogsItems .dialog{
+
+}
+.dialog.active {
+  color: hotpink;
+}
+.messages .message {
+
+}
