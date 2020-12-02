@@ -7,7 +7,7 @@ const Post = (props) => {
         src="https://www.denofgeek.com/wp-content/uploads/2020/04/Avatar-The-Last-Airbender-Netflix.png"
         alt=""/>
       <div>{props.message}</div>
-      {props.likecount}<span> likes</span>
+      {props.likesCount}<span> likes</span>
     </div>
   );
 }
