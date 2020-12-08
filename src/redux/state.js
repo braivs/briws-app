@@ -22,14 +22,24 @@ let state = {
       {id: 8, name: 'Mario'}
     ],
     messages: [
-      {id: 1, message: 'How are you?'},
-      {id: 2, message: 'Hi'},
-      {id: 3, message: 'Yo'},
-      {id: 4, message: 'Go go go'},
-      {id: 5, message: 'Cover me!'},
-      {id: 6, message: 'Done!'}
+      {id: 1, author: 'Alisa', message: 'How are you?'},
+      {id: 2, author: 'BriWS', message: 'Hi'},
+      {id: 3, author: 'Mario', message: 'Yo'},
+      {id: 4, author: 'Gosha', message: 'Go go go'},
+      {id: 5, author: 'Alex', message: 'Cover me!'},
+      {id: 6, author: 'Alisa', message: 'Done!'}
     ],
-  }
+  },
+  sidebar: {
+    friends: [
+      {id: 1, name: 'Andrew'},
+      {id: 2, name: 'Sasha'},
+      {id: 3, name: 'Sveta'},
+    ],
+  },
+
+
+
 }
 
 export default state;

@@ -1,0 +1,15 @@
+.message {
+  display: flex;
+  /*flex: 0 20%;*/
+  /*border: 1px solid red;*/
+  /*width: 500px;*/
+  /*justify-self: end;*/
+}
+
+.author{
+  color: aqua;
+  font-weight: bold;
+}
+.ava {
+  width: 60px;
+}

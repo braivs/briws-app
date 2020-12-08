@@ -2,13 +2,25 @@
   display: grid;
   grid-template-columns: 1fr 8fr;
   padding: 10px;
+  border: 1px solid red;
 }
 .dialogsItems .dialog{
-
+  display: flex;
+  align-items: center;
 }
 .dialog.active {
   color: hotpink;
 }
-.messages .message {
+.dialog img {
+  width: 60px;
+}
+.messages {
+  margin-left: 50px;
+  display: grid;
+  /*width: 600px;*/
+  /*border: 1px solid red;*/
+  grid-template-columns: auto auto;
+
+  grid-auto-rows: minmax(min-content, max-content);
 
 }
