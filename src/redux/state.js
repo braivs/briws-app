@@ -32,9 +32,8 @@ let state = {
       {id: 5, author: 'Alex', message: 'Cover me!'},
       {id: 6, author: 'Alisa', message: 'Done!'}
     ],
-    newMessage: [
-      {author: 'DefaultAuthor', message: 'defaultMessage'}
-    ]
+    newMessageText: 'defaultMessage',
+    newMessageAuthor: 'defaultAuthor'
   },
   sidebar: {
     friends: [
@@ -59,8 +58,26 @@ export let addPost = () => {
   rerenderEntireTree(state);
 }
 
+export let addMessage = () => {
+  let newMessage = {
+    id: 7,
+    author: state.dialogsPage.newMessageAuthor,
+    message: state.dialogsPage.newMessageText,
+  }
+  state.dialogsPage.messages.push(newMessage);
+  state.dialogsPage.newMessageText = '';
+  state.dialogsPage.newMessageAuthor = 'defaultAuthor';
+  rerenderEntireTree(state);
+}
+
 export let updateNewPostText = (newText) => {
   state.profilePage.newPostText = newText;
+  rerenderEntireTree(state);
+}
+
+export let updateNewMessage = (newText) => {
+  state.dialogsPage.newMessageAuthor = 'defaultAuthor';
+  state.dialogsPage.newMessageText = newText;
   rerenderEntireTree(state);
 }
 
