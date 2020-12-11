@@ -7,14 +7,19 @@ const Dialogs = (props) => {
   let dialogs = props.dialogsPage.dialogs.map(d => <DialogItem name={d.name} id={d.id}/>);
   let messages = props.dialogsPage.messages.map(m => <Message author={m.author} message={m.message}/>);
 
-  let newMessageElement = React.createRef();
+  let newMessageText = React.createRef();
+  let newMessageAuthor = React.createRef();
   let addMessage = () => {
     props.addMessage();
   }
 
-  let onMessageChange = () => {
-    let text = newMessageElement.current.value;
-    props.updateNewMessage(text);
+  let onMessageChangeText = () => {
+    let text = newMessageText.current.value;
+    props.updateNewMessageText(text);
+  }
+  let onMessageChangeAuthor = () => {
+    let author = newMessageAuthor.current.value;
+    props.updateNewMessageAuthor(author);
   }
 
   return (
@@ -27,11 +32,13 @@ const Dialogs = (props) => {
       </div>
       <div className={s.newMessage}>
         <span>Author:</span>
-        <textarea value={props.dialogsPage.newMessageAuthor}
+        <textarea onChange={onMessageChangeAuthor}
+                  ref={newMessageAuthor}
+                  value={props.dialogsPage.newMessageAuthor}
         />
         <span>Message:</span>
-        <textarea onChange={onMessageChange}
-                  ref={newMessageElement}
+        <textarea onChange={onMessageChangeText}
+                  ref={newMessageText}
                   value={props.dialogsPage.newMessageText}
         />
         <button onClick={addMessage}>Add message</button>

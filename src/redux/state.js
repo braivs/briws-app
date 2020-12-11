@@ -66,7 +66,7 @@ export let addMessage = () => {
   }
   state.dialogsPage.messages.push(newMessage);
   state.dialogsPage.newMessageText = '';
-  state.dialogsPage.newMessageAuthor = 'defaultAuthor';
+  state.dialogsPage.newMessageAuthor = '';
   rerenderEntireTree(state);
 }
 
@@ -75,11 +75,13 @@ export let updateNewPostText = (newText) => {
   rerenderEntireTree(state);
 }
 
-export let updateNewMessage = (newText) => {
-  state.dialogsPage.newMessageAuthor = 'defaultAuthor';
+export let updateNewMessageText = (newText) => {
   state.dialogsPage.newMessageText = newText;
   rerenderEntireTree(state);
 }
-//test
+export let updateNewMessageAuthor = (newAuthor) => {
+  state.dialogsPage.newMessageAuthor = newAuthor;
+  rerenderEntireTree(state);
+}
 
 export default state;
