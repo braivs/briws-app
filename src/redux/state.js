@@ -80,5 +80,6 @@ export let updateNewMessage = (newText) => {
   state.dialogsPage.newMessageText = newText;
   rerenderEntireTree(state);
 }
+//test
 
 export default state;
