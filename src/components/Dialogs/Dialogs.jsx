@@ -10,16 +10,16 @@ const Dialogs = (props) => {
   let newMessageText = React.createRef();
   let newMessageAuthor = React.createRef();
   let addMessage = () => {
-    props.addMessage();
+    props.dispatch({type: 'ADD-MESSAGE'});
   }
 
   let onMessageChangeText = () => {
     let text = newMessageText.current.value;
-    props.updateNewMessageText(text);
+    props.dispatch({type: 'UPDATE-NEW-MESSAGE-TEXT', newText: text});
   }
   let onMessageChangeAuthor = () => {
     let author = newMessageAuthor.current.value;
-    props.updateNewMessageAuthor(author);
+    props.dispatch({type: 'UPDATE-NEW-MESSAGE-AUTHOR', newAuthor: author})
   }
 
   return (

@@ -49,26 +49,6 @@ let store = {
   subscribe(observer) {
     this._callSubscriber = observer
   },
-  addMessage() {
-    let newMessage = {
-      id: 7,
-      author: this._state.dialogsPage.newMessageAuthor,
-      message: this._state.dialogsPage.newMessageText,
-    }
-    this._state.dialogsPage.messages.push(newMessage);
-    this._state.dialogsPage.newMessageText = '';
-    this._state.dialogsPage.newMessageAuthor = '';
-    this._callSubscriber(this._state);
-  },
-  updateNewMessageText(newText) {
-    this._state.dialogsPage.newMessageText = newText;
-    this._callSubscriber(this._state);
-  },
-  updateNewMessageAuthor(newAuthor) {
-    this._state.dialogsPage.newMessageAuthor = newAuthor;
-    this._callSubscriber(this._state);
-  },
-
   dispatch(action) {
     if (action.type === 'ADD-POST') {
       let newPost = {
@@ -81,6 +61,22 @@ let store = {
       this._callSubscriber(this._state);
     } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
       this._state.profilePage.newPostText = action.newText;
+      this._callSubscriber(this._state);
+    } else if (action.type === 'ADD-MESSAGE') {
+      let newMessage = {
+        id: 7,
+        author: this._state.dialogsPage.newMessageAuthor,
+        message: this._state.dialogsPage.newMessageText,
+      }
+      this._state.dialogsPage.messages.push(newMessage);
+      this._state.dialogsPage.newMessageText = '';
+      this._state.dialogsPage.newMessageAuthor = '';
+      this._callSubscriber(this._state);
+    } else if (action.type === 'UPDATE-NEW-MESSAGE-TEXT') {
+      this._state.dialogsPage.newMessageText = action.newText;
+      this._callSubscriber(this._state);
+    } else if (action.type === 'UPDATE-NEW-MESSAGE-AUTHOR') {
+      this._state.dialogsPage.newMessageAuthor = action.newAuthor;
       this._callSubscriber(this._state);
     }
   }
