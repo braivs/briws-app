@@ -1,5 +1,8 @@
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+const ADD_MESSAGE = 'ADD-MESSAGE';
+const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
+const UPDATE_NEW_MESSAGE_AUTHOR = 'UPDATE-NEW-MESSAGE-AUTHOR';
 
 let store = {
   _state: {
@@ -65,7 +68,7 @@ let store = {
     } else if (action.type === UPDATE_NEW_POST_TEXT) {
       this._state.profilePage.newPostText = action.newText;
       this._callSubscriber(this._state);
-    } else if (action.type === 'ADD-MESSAGE') {
+    } else if (action.type === ADD_MESSAGE) {
       let newMessage = {
         id: 7,
         author: this._state.dialogsPage.newMessageAuthor,
@@ -75,10 +78,10 @@ let store = {
       this._state.dialogsPage.newMessageText = '';
       this._state.dialogsPage.newMessageAuthor = '';
       this._callSubscriber(this._state);
-    } else if (action.type === 'UPDATE-NEW-MESSAGE-TEXT') {
+    } else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
       this._state.dialogsPage.newMessageText = action.newText;
       this._callSubscriber(this._state);
-    } else if (action.type === 'UPDATE-NEW-MESSAGE-AUTHOR') {
+    } else if (action.type === UPDATE_NEW_MESSAGE_AUTHOR) {
       this._state.dialogsPage.newMessageAuthor = action.newAuthor;
       this._callSubscriber(this._state);
     }
@@ -87,6 +90,9 @@ let store = {
 
 export const addPostActionCreator = () => ({type: ADD_POST})
 export const updateNewPostTextActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text})
+export const addMessageActionCreator = () => ({type: ADD_MESSAGE})
+export const updateNewMessageTextActionCreator = (text) => ({type: UPDATE_NEW_MESSAGE_TEXT, newText: text})
+export const updateNewMessageAuthorActionCreator = (author) => ({type: UPDATE_NEW_MESSAGE_AUTHOR, newAuthor: author})
 
 window.store = store;
 export default store;
