@@ -6,7 +6,7 @@ import {
   addMessageActionCreator,
   updateNewMessageAuthorActionCreator,
   updateNewMessageTextActionCreator
-} from "../../redux/state";
+} from "../../redux/dialog-reducer";
 
 const Dialogs = (props) => {
   let state = props.store.getState().dialogsPage
