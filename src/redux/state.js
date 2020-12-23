@@ -33,8 +33,8 @@ let store = {
         {id: 5, author: 'Alex', message: 'Cover me!'},
         {id: 6, author: 'Alisa', message: 'Done!'}
       ],
-      newMessageText: 'defaultMessage',
-      newMessageAuthor: 'defaultAuthor'
+      newMessageText: '',
+      newMessageAuthor: ''
     },
     sidebar: {
       friends: [

@@ -9,23 +9,25 @@ import {
 } from "../../redux/state";
 
 const Dialogs = (props) => {
-  let dialogs = props.dialogsPage.dialogs.map(d => <DialogItem name={d.name} id={d.id}/>);
-  let messages = props.dialogsPage.messages.map(m => <Message author={m.author} message={m.message}/>);
+  let state = props.store.getState().dialogsPage
 
-  let newMessageText = React.createRef();
-  let newMessageAuthor = React.createRef();
+  let dialogs = state.dialogs.map(d => <DialogItem name={d.name} id={d.id}/>);
+  let messages = state.messages.map(m => <Message author={m.author} message={m.message}/>);
+
   let addMessage = () => {
-    props.dispatch(addMessageActionCreator());
+    props.store.dispatch(addMessageActionCreator());
   }
 
-  let onMessageChangeText = () => {
-    let text = newMessageText.current.value;
-    props.dispatch(updateNewMessageTextActionCreator(text));
+  let onMessageChangeText = (e) => {
+    let text = e.target.value;
+    props.store.dispatch(updateNewMessageTextActionCreator(text));
   }
-  let onMessageChangeAuthor = () => {
-    let author = newMessageAuthor.current.value;
-    props.dispatch(updateNewMessageAuthorActionCreator(author))
+  let onMessageChangeAuthor = (e) => {
+    let author = e.target.value;
+    props.store.dispatch(updateNewMessageAuthorActionCreator(author))
   }
+  let newMessageAuthor = state.newMessageAuthor;
+  let newMessageText = state.newMessageText;
 
   return (
     <div className={s.dialogs}>
@@ -38,13 +40,13 @@ const Dialogs = (props) => {
       <div className={s.newMessage}>
         <span>Author:</span>
         <textarea onChange={onMessageChangeAuthor}
-                  ref={newMessageAuthor}
-                  value={props.dialogsPage.newMessageAuthor}
+                  value={newMessageAuthor}
+                  placeholder='Enter author'
         />
         <span>Message:</span>
         <textarea onChange={onMessageChangeText}
-                  ref={newMessageText}
-                  value={props.dialogsPage.newMessageText}
+                  value={newMessageText}
+                  placeholder='Enter message'
         />
         <button onClick={addMessage}>Add message</button>
       </div>
